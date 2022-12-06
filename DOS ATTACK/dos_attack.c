@@ -7,6 +7,10 @@
 #include <netinet/ip.h>
 #include <stdlib.h>
 
+/**
+ * @brief This structure is used to create the ip header
+ * @author Piyush Mehta
+ */
 struct ipheader {
 	unsigned char iph_ihl:4, iph_ver:4;
 	unsigned char iph_tos;
@@ -20,6 +24,11 @@ struct ipheader {
 	struct in_addr iph_destip;
 };
 
+/**
+ * @brief This function is called to send a raw IP Packet
+ * @param struct ipheader
+ * @return void
+ */
 void send_raw_ip_packet (struct ipheader *ip) {
 	int sd;
 	int enable = 1;
@@ -41,6 +50,11 @@ void send_raw_ip_packet (struct ipheader *ip) {
 	}
 }
 
+/**
+ * @brief Main function
+ * 
+ * @return int 
+ */
 int main() {
 	char buffer[1500];
 	memset(buffer, 0, 1500);
